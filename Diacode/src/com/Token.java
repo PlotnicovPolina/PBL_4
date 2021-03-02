@@ -1,6 +1,4 @@
 package com;
-import java.util.HashMap;
-import java.util.Map;
 public class Token {
     final TokenType type;
     final String lexeme;
@@ -13,17 +11,11 @@ public class Token {
         this.line = line;
     }
     public String getToken() {
-        return type + " " + lexeme + " " + literal;
+        return line+" "+type + " " + lexeme + " " + literal;
     }
     enum TokenType {
         IDENTIFIER,// - type names, variable names and function names
         OPERATOR,// - binary and unary operators
-        EQUAL_EQUAL,//==
-        EQUAL,//=
-        LESS_EQUAL,//<=
-        LESS,//<
-        GREATER_EQUAL,//>=
-        GREATER,//>
 
         NUMBER,// - numbers, both int and float
         STRING ,//- string value, without quote characters
@@ -44,7 +36,7 @@ public class Token {
         ARRAY_BRACKET_START,// - [
         ARRAY_BRACKET_END,// - ]
 
-        UNCLASSIFIED ,//- any character that didn't match other token types
+        UNCLASSIFIED,//- any character that didn't match other token types
 
     }
 }

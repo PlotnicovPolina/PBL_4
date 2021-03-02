@@ -5,16 +5,22 @@ import java.io.IOException;
 import java.util.List;
 
 public class Main {
-
+    static boolean hadError = Boolean.FALSE;
     public static void main(String[] args) throws IOException{
         String path;
+        String allLines="";
         path = "F:\\USERS\\Polina\\Рабочий стол\\govno.txt";
         File file = new File(path);
         Scanner scanner = new Scanner(file);
         while(scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            TestText(line);
+            if (!allLines.isEmpty()) {
+                allLines += "\n";
+            }
+            allLines += line;
         }
+        TestText(allLines);
+        if (hadError) System.exit(1);
         scanner.close();
     }
     private static void TestText(String testLine) {
@@ -25,5 +31,9 @@ public class Main {
             System.out.println(token.getToken());
         }
     }
-
+    static void error(int line, char where, String message) {
+        System.err.println(
+                "Line [" + line + "] Error \"" + where + "\": " + message);
+        hadError = true;
+    }
 }
