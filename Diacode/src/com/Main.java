@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException{
         String path;
         String allLines="";
-        path = "F:\\USERS\\Polina\\Рабочий стол\\govno.txt";
+        path = "F:\\USERS\\Polina\\Рабочий стол\\PBL_4.txt";
         File file = new File(path);
         Scanner scanner = new Scanner(file);
         while(scanner.hasNextLine()) {
@@ -26,7 +26,6 @@ public class Main {
     private static void TestText(String testLine) {
         Scan scanner = new Scan(testLine);
         List<Token> tokens = scanner.scanTokens();
-        System.out.println(testLine);
         for (Token token : tokens) {
             System.out.println(token.getToken());
         }
